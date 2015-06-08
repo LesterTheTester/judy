@@ -8,6 +8,11 @@ unittests, or dependencies that they could have easily tested before checkin?
 
 Enter @JudyTheJudgementalChicken. She clucks so you don't have to!
 
+<img url='http://s3.amazonaws.com/content-test/crash.jpg'>
+<img url='http://s3.amazonaws.com/content-test/lint.jpg'>
+<img url='http://s3.amazonaws.com/content-test/mocha.jpg'>
+
+
 Setup:
 
 1. Install Judy
