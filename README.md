@@ -25,7 +25,7 @@ Enter <b>JudyTheJudgementalChicken</b>. She clucks so you don't have to!
 
 where...
 
-RULES is a JSON file (defaults to judy.json) containing key-value pairs of
+<b>RULES</b> is a JSON file (defaults to judy.json) containing key-value pairs of
 failure strings to search for, and HTML messages to post to github:
 i.e.
 
