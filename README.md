@@ -66,6 +66,8 @@ env:
  - secure: "asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf"
 ```
 
+<h3>Misc.</h3>
+
 Consider physically embodying Judy with a Chicken puppet hat for your office:
 
 http://www.amazon.com/Chicken-Hat-The-Clucker-Puppet/dp/B0040Z9ECG
