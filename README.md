@@ -28,8 +28,11 @@ i.e.
 ```
 
 OAUTH_TOKEN is the Github OAUTH token for a user that can post comments to your project
+
 AUTHOR/REPO is your Github repo, i.e. LesterTheTester/judy
+
 ISSUE_NUMBER is the issue or pull request number to comment on, i.e. 1
+
 BUILD.log is the build output to search through
 
 Environment variables:
