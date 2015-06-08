@@ -66,6 +66,7 @@ env:
 ```
 
 Consider physically embodying Judy with a Chicken puppet hat for your office:
+
 http://www.amazon.com/Chicken-Hat-The-Clucker-Puppet/dp/B0040Z9ECG
 
 Author makes no endorsement of this product nor receives any compensation for its sales.
