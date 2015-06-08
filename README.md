@@ -8,7 +8,9 @@ unittests, or dependencies that they could have easily tested before checkin?
 
 Enter @JudyTheJudgementalChicken. She clucks so you don't have to!
 
-<img src='http://s3.amazonaws.com/content-test/crash.jpg' width=300><img src='http://s3.amazonaws.com/content-test/lint.jpg' width=300><img src='http://s3.amazonaws.com/content-test/mocha.jpg' width=300>
+<img src='http://s3.amazonaws.com/content-test/crash.jpg' width=300>
+<img src='http://s3.amazonaws.com/content-test/lint.jpg' width=300>
+<img src='http://s3.amazonaws.com/content-test/mocha.jpg' width=300>
 
 
 
