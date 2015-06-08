@@ -17,8 +17,10 @@ Enter <b>JudyTheJudgementalChicken</b>. She clucks so you don't have to!
 <h3>Setup:</h3>
 
 1. Install Judy
+
     $ sudo pip install judy-bot
 2. Run
+
     $ judy -f RULES -t OAUTH_TOKEN -r AUTHOR/REPO -i ISSUE_NUMBER BUILD.log
 
 where...
