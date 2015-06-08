@@ -45,8 +45,11 @@ i.e.
 
 <h3>Environment variables:</h3>
 Instead of specifying these on the commandline, you may set the environment variables:
+
 <b>JUDY_OAUTH_TOKEN
+
 JUDY_REPO
+
 JUDY_ISSUE</b>
 
 <h3>Continous Integration Support</h3>
