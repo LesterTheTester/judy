@@ -32,7 +32,7 @@ BUILD.log is the build output to search through
 
 Environment variables:
 Instead of specifying these on the commandline, you may set the environment variables:
-JUDY_TOKEN
+JUDY_OAUTH_TOKEN
 JUDY_REPO
 JUDY_ISSUE
 
@@ -49,7 +49,7 @@ script:
 after_script:
  - judy build.log
 env:
- - JUDY_TOKEN="travis-encrypt your oauth token below"
+ - JUDY_OAUTH_TOKEN="travis-encrypt your oauth token below"
  - secure: "asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf"
 
 
