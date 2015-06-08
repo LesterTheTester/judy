@@ -21,9 +21,11 @@ RULES is a JSON file (defaults to judy.json) containing key-value pairs of
 failure strings to search for, and HTML messages to post to github:
 i.e.
 
+```
 {
   "BUILD FAILED":"YOUR BUILD CRASHED!! <img src='http://s3.amazonaws.com/content-test/crash.jpg'>"
 }
+```
 
 OAUTH_TOKEN is the Github OAUTH token for a user that can post comments to your project
 AUTHOR/REPO is your Github repo, i.e. LesterTheTester/judy
