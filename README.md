@@ -45,6 +45,7 @@ Judy is easily integrated into most CI systems, take Travis-CI for example:
 
 ...in your .travis.yml, require judy and execute:
 
+```
 before_script:
  - export JUDY_REPO=LesterTheTester/judy
  - export JUDY_ISSUE=$TRAVIS_PULL_REQUEST
@@ -56,7 +57,7 @@ after_script:
 env:
  - JUDY_OAUTH_TOKEN="travis-encrypt your oauth token below"
  - secure: "asdfasdfasdfasdfasdfasdfasdfasdfasdfasdf"
-
+```
 
 Consider physically embodying Judy with a Chicken puppet hat for your office:
 http://www.amazon.com/Chicken-Hat-The-Clucker-Puppet/dp/B0040Z9ECG
