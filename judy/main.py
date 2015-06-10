@@ -42,7 +42,7 @@ def main():
     arguments = parse_args()
     rules = json.loads(arguments.rules.read())
     arguments.rules.close()
-    build_log = arguments.build_log.read()
+    build_log = arguments.build_log.read().decode('utf-8')
     arguments.build_log.close()
     for rule in rules.keys():
         if rule in build_log:
