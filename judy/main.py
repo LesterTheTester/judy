@@ -18,23 +18,34 @@ def parse_args():
                         help='The issue number to comment on (i.e., "1"), defaults to env var JUDY_ISSUE')
     parser.add_argument('-p', '--prelude', default=':chicken: cluck! cluck! :chicken:',
                         help='Prelude to include with all messages')
+    parser.add_argument('-s', '--slack',
+                        help='Slack Incoming Webhook URL for optional slack integration')
 
     arguments = parser.parse_args()
     if not arguments.token:
         try:
-            arguments.token = os.environ['JUDY_OAUTH_TOKEN']
+            arguments.token = os.environ['GITHUB_OAUTH_TOKEN']
         except KeyError:
-            print '--token not provided and no JUDY_OAUTH_TOKEN env var'
+            if not arguments.slack:
+                print '--token not provided and no JUDY_OAUTH_TOKEN env var'
     if not arguments.repo:
         try:
-            arguments.repo = os.environ['JUDY_REPO']
+            arguments.repo = os.environ['GITHUB_REPO']
         except KeyError:
-            print '--repo not provided and no JUDY_REPO env var'
+            if not arguments.slack:
+                print '--repo not provided and no JUDY_REPO env var'
     if not arguments.issue:
         try:
-            arguments.issue = os.environ['JUDY_ISSUE']
+            arguments.issue = os.environ['GITHUB_ISSUE']
         except KeyError:
-            print '--issue not provided and no JUDY_ISSUE env var'
+            if not arguments.slack:
+                print '--issue not provided and no JUDY_ISSUE env var'
+    if not arguments.slack:
+        try:
+            arguments.slack = os.environ['SLACK_WEBHOOK_URL']
+        except KeyError:
+            if not (arguments.repo and arguments.issue and arguments.token):
+                print 'No Github or Slack credentials provided!'
     return arguments
 
 def main():
@@ -49,16 +60,28 @@ def main():
             message += '<br>' + rules[rule]
     if message:
         message = arguments.prelude + message
-        URL = 'https://api.github.com/repos/%s/issues/%s/comments' % (arguments.repo, arguments.issue)
-        DATA = json.dumps({'body': message})
-        HEADERS = {'Authorization' : 'token %s' % arguments.token}
-        response = requests.post(URL, data=DATA, headers=HEADERS)
-        if response.status_code in (200, 201):
-            print 'Got Judgemental!'
-        elif response.status_code == 401:
-            print 'Unauthorized! Please check my OAUTH Token!'
-        else:
-            print 'Failed! Status Code: ' + str(response.status_code)
+        print message
+        # POST the message to github
+        if arguments.repo and arguments.issue and arguments.token:
+            URL = 'https://api.github.com/repos/%s/issues/%s/comments' % (arguments.repo, arguments.issue)
+            DATA = json.dumps({'body': message})
+            HEADERS = {'Authorization' : 'token %s' % arguments.token}
+            response = requests.post(URL, data=DATA, headers=HEADERS)
+            if response.status_code in (200, 201):
+                print 'Got Judgemental! (on Github)'
+            elif response.status_code == 401:
+                print 'Unauthorized! Please check my Github OAUTH Token!'
+            else:
+                print 'Github POST Failed! Status Code: ' + str(response.status_code)
+        # POST the message to slack
+        if arguments.slack:
+            URL = arguments.slack
+            DATA = json.dumps({'payload': {'text': message}})
+            response = requests.post(URL, data=DATA)
+            if response.status_code in (200, 201):
+                print 'Got Judgemental! (on Slack)'
+            else:
+                print 'Slack POST Failed! Status Code: ' + str(response.status_code)
 
 if __name__ == '__main__':
     main()
